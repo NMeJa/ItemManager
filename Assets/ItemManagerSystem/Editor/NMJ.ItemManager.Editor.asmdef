@@ -1,0 +1,17 @@
+{
+    "name": "NMJ.ItemManager.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d85f6a811c5e9ef428fd562c80c95fe8",
+        "GUID:478a2357cc57436488a56e564b08d223"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

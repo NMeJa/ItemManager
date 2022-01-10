@@ -7,6 +7,7 @@ public class Tt : MonoBehaviour
     [ContextMenu("D")]
     private void S()
     {
-        sd = sd.Remove(sd.Length - ".asset".Length);
+        sd = Application.dataPath;
+        //C:/Users/nmela/Projects/Tools/ItemManager/Assets
     }
 }

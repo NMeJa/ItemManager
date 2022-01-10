@@ -1,0 +1,223 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/ItemManagerSystem/Editor/ItemManagerEditor/ItemManagerWindow/ItemManagerEditorWindow.uss?fileID=7433441132597879392&amp;guid=6cff7e63f160424479e922197ebb8e4d&amp;type=3#ItemManagerEditorWindow" />
+    <ui:VisualElement name="MainContainer" class="fill-parent">
+        <ui:VisualElement name="HeaderContainer" class="container" style="height: 10%;">
+            <ui:Label text="Item Manager" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 24px;" />
+            <uie:Toolbar style="flex-direction: row-reverse;">
+                <uie:ToolbarButton text="Load" display-tooltip-when-elided="true" name="LoadBtn_TB" />
+                <uie:ToolbarSpacer />
+                <uie:ToolbarPopupSearchField focusable="true" name="Containers_TPSF" />
+            </uie:Toolbar>
+        </ui:VisualElement>
+        <ui:VisualElement name="BodyContainer" class="container" style="width: 100%; height: 100%; flex-direction: row;">
+            <ui:VisualElement name="ItemsContainer" style="width: 150px; height: 100%; border-right-width: 1px; border-right-color: rgb(47, 47, 47);">
+                <ui:VisualElement name="ContainerName_VE" style="flex-direction: row; justify-content: space-between; flex-shrink: 0;">
+                    <ui:Label text="Items" display-tooltip-when-elided="true" name="ContainerName_L" style="-unity-text-align: middle-center; font-size: 15px;" />
+                    <ui:Button display-tooltip-when-elided="true" name="EditContainerName_Btn" style="background-image: url(&apos;project://database/Assets/ItemManagerSystem/Editor/Icons/edit.png?fileID=2800000&amp;guid=3cff5771fb334ac4fa630fc069afd525&amp;type=3#edit&apos;); width: 20px; background-color: rgb(168, 168, 168);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="EditModeContainerName_VE" style="flex-shrink: 0; height: 50px;">
+                    <ui:TextField picking-mode="Ignore" name="EditContainerName_TF" />
+                    <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
+                        <ui:Button text="Save" display-tooltip-when-elided="true" name="SaveContainer_Btn" style="background-color: rgb(47, 142, 47); font-size: 17px;" />
+                        <ui:Button text="Cancel" display-tooltip-when-elided="true" name="CancelContainer_Btn" style="background-color: rgb(142, 47, 47);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:ListView focusable="true" name="ItemContainers_LV" fixed-item-height="75" />
+                <uie:Toolbar>
+                    <uie:ToolbarSearchField focusable="true" name="SearchItems_TSF" style="width: 110px;" />
+                    <uie:ToolbarSpacer />
+                    <uie:ToolbarButton text="+" display-tooltip-when-elided="true" name="AddItemBtn_TB" style="font-size: 20px; -unity-text-align: lower-left;" />
+                </uie:Toolbar>
+            </ui:VisualElement>
+            <ui:ScrollView>
+                <ui:VisualElement name="ItemConfigurationContainer_VE" style="flex-grow: 1; border-left-color: rgb(47, 47, 47); border-left-width: 1px;">
+                    <ui:VisualElement name="HeaderContainer">
+                        <ui:Label text="Item Name" display-tooltip-when-elided="true" name="ItemName_L" style="-unity-text-align: middle-center; font-size: 17px;" />
+                        <uie:Toolbar style="flex-direction: row-reverse;">
+                            <uie:ToolbarButton text="Save" display-tooltip-when-elided="true" name="SaveBtn_TB" />
+                            <uie:ToolbarButton text="Cancel" display-tooltip-when-elided="true" name="CancelBtn_TB" />
+                            <uie:ToolbarButton text="Delete" display-tooltip-when-elided="true" name="DeleteBtn_TB" />
+                        </uie:Toolbar>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="BodyContainer" style="flex-grow: 1; border-top-width: 1px; border-top-color: rgb(35, 35, 35);">
+                        <ui:GroupBox name="General" class="groupbox" style="align-items: center;">
+                            <ItemManagerSystem.ItemManagerEditor.Utilities.ImageElement name="Icon_IE" style="width: 135px; height: 135px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;" />
+                            <ui:GroupBox class="groupbox-container" style="min-height: 150px;">
+                                <ui:Label text="General" display-tooltip-when-elided="true" class="groupbox-header" />
+                                <ui:TextField picking-mode="Ignore" label="Name" value="filler text" text="filler text" name="Name_TF" />
+                                <uie:TagField label="Tag" value="Player" name="Tag_TF" />
+                                <uie:ObjectField label="Icon" type="UnityEngine.Sprite, UnityEngine.CoreModule" name="Icon_OF" />
+                                <ui:Toggle label="Stackable" value="true" name="Stackable_T" />
+                                <uie:IntegerField label="Min Level Requirment" value="42" name="MinLevelReq_IF" />
+                                <uie:ObjectField label="Prefab" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="Prefab_OF" allow-scene-objects="false" />
+                            </ui:GroupBox>
+                        </ui:GroupBox>
+                        <ui:GroupBox name="Attributes" class="groupbox" style="height: auto;">
+                            <ui:GroupBox class="groupbox-container">
+                                <ui:Label text="Attributes" display-tooltip-when-elided="true" class="groupbox-header" />
+                                <uie:Toolbar name="Header" style="height: 42px;">
+                                    <uie:ToolbarSpacer />
+                                    <ui:Label text="Use" display-tooltip-when-elided="true" name="Use" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Attribute&#10;Name" display-tooltip-when-elided="true" name="Name" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Add&#10;Number" display-tooltip-when-elided="true" name="AddNumber" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Add&#10;Percentage" display-tooltip-when-elided="true" name="AddPercentage" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Minimum&#10;Requirement" display-tooltip-when-elided="true" name="MinimumRequirement" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Use&#10;Num" display-tooltip-when-elided="true" name="UseAddNumber" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Use&#10;%" display-tooltip-when-elided="true" name="UseAddPercentage" class="attribute-header" />
+                                    <uie:ToolbarSpacer class="attribute-space" />
+                                    <ui:Label text="Use&#10;Min Req" display-tooltip-when-elided="true" name="UseMinimumRequirement" class="attribute-header" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Strength_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Strength" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Intelligence_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Intelligence" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Dexterity_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Dexterity" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Constitution_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Constitution" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Wisdom_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Wisdom" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                                <uie:Toolbar name="Charisma_TB">
+                                    <uie:ToolbarSpacer style="width: 8px;" />
+                                    <ui:Toggle name="UseAttribute_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 25px;" />
+                                    <ui:Label text="Charisma" display-tooltip-when-elided="true" name="AttributeName" style="-unity-text-align: middle-left; width: 70px;" />
+                                    <uie:ToolbarSpacer style="width: 20px;" />
+                                    <uie:FloatField value="42.2" name="NumberBonus_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 45px;" />
+                                    <uie:FloatField value="42.2" name="PercentageBonus_FF" class="attribute-float-field-width" />
+                                    <ui:Label text="%" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <uie:FloatField value="42.2" name="MinReq_FF" class="attribute-float-field-width" />
+                                    <uie:ToolbarSpacer style="width: 50px;" />
+                                    <ui:Toggle name="UseNumber_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 33px;" />
+                                    <ui:Toggle name="UsePercentage_T" class="attribute-toggle" />
+                                    <uie:ToolbarSpacer style="width: 44px;" />
+                                    <ui:Toggle name="UseMinReq_T" class="attribute-toggle" />
+                                </uie:Toolbar>
+                            </ui:GroupBox>
+                        </ui:GroupBox>
+                        <ui:GroupBox name="Description" class="groupbox">
+                            <ui:GroupBox class="groupbox-container">
+                                <ui:Label text="Description" display-tooltip-when-elided="true" class="groupbox-header" />
+                                <uie:EnumField label="Rarity" value="sxcxzc" name="Rarity_EF" />
+                                <ItemManagerSystem.ItemManagerEditor.Utilities.EnumFieldFlags name="Category_EF" label="Category" />
+                                <ItemManagerSystem.ItemManagerEditor.Utilities.EnumFieldFlags name="Effects_EF" label="Effects" />
+                                <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="Description_TF" multiline="true" style="flex-shrink: 1; flex-grow: 1;" />
+                            </ui:GroupBox>
+                        </ui:GroupBox>
+                        <ui:GroupBox name="Price" class="groupbox">
+                            <ui:GroupBox class="groupbox-container">
+                                <ui:Label text="Price" display-tooltip-when-elided="true" class="groupbox-header" />
+                                <uie:FloatField label="Price" value="42.2" name="BuyPrice_FF" />
+                                <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" name="SellPercentage_S" />
+                                <uie:FloatField label="Sell Price" value="42.2" name="SellPrice_FF" />
+                            </ui:GroupBox>
+                        </ui:GroupBox>
+                        <ui:VisualElement name="Powers" class="groupbox">
+                            <ui:GroupBox class="groupbox-container">
+                                <ui:Label text="Powers" display-tooltip-when-elided="true" class="groupbox-header" />
+                                <ui:VisualElement style="flex-direction: row; width: 100%; height: 150%;">
+                                    <ui:ScrollView mode="Horizontal" />
+                                    <ui:Button text="+" display-tooltip-when-elided="true" style="font-size: 35px; background-color: rgb(60, 60, 60);" />
+                                </ui:VisualElement>
+                            </ui:GroupBox>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

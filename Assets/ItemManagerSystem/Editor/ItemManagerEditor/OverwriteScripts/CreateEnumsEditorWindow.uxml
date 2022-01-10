@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ItemManagerSystem/Editor/ItemManagerEditor/OverwriteScripts/CreateEnumsEditorWindow.uss?fileID=7433441132597879392&amp;guid=09c35d1aab1d0494182ff7a5d7e705a4&amp;type=3#CreateEnumsEditorWindow" />
+    <ui:VisualElement style="width: 100%; height: 100%;">
+        <ui:VisualElement name="Header" class="container" style="flex-direction: row; justify-content: center; flex-shrink: 0;">
+            <ui:Button text="Rarity" display-tooltip-when-elided="true" name="Rarity_Btn" class="header-button" />
+            <ui:Button text="Category" display-tooltip-when-elided="true" name="Category_Btn" class="header-button" />
+            <ui:Button text="Effects" display-tooltip-when-elided="true" name="Effects_Btn" class="header-button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Body" class="container">
+            <ui:VisualElement name="RarityContainer_VE" class="body-container">
+                <ui:Label text="Create Rarity Values" display-tooltip-when-elided="true" class="body-label" />
+                <ui:VisualElement class="button-container">
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="Plus_Btn" class="container-button" />
+                    <ui:Button text="-" display-tooltip-when-elided="true" name="Minus_Btn" class="container-button" />
+                </ui:VisualElement>
+                <ui:ScrollView />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="Create_Btn" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CategoryContainer_VE" class="body-container">
+                <ui:Label text="Create Category Values" display-tooltip-when-elided="true" class="body-label" />
+                <ui:VisualElement class="button-container" style="flex-direction: row;">
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="Plus_Btn" class="container-button" />
+                    <ui:Button text="-" display-tooltip-when-elided="true" name="Minus_Btn" class="container-button" />
+                </ui:VisualElement>
+                <ui:ScrollView />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="Create_Btn" />
+            </ui:VisualElement>
+            <ui:VisualElement name="EffectsContainer_VE" class="body-container">
+                <ui:Label text="Create Effects Values" display-tooltip-when-elided="true" class="body-label" />
+                <ui:VisualElement class="button-container" style="flex-direction: row;">
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="Plus_Btn" class="container-button" />
+                    <ui:Button text="-" display-tooltip-when-elided="true" name="Minus_Btn" class="container-button" />
+                </ui:VisualElement>
+                <ui:ScrollView />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="Create_Btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
