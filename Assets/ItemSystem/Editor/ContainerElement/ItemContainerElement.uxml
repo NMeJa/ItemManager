@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ItemSystem/Editor/ContainerElement/ItemContainerElement.uss?fileID=7433441132597879392&amp;guid=bf20d55194cb83745bd953af983cad3d&amp;type=3#ItemContainerElement" />
+    <ui:VisualElement style="width: 150px; height: 75px; flex-direction: row; align-items: center;">
+        <GoblinAdventures.UIElements.ImageElement style="height: 70px; width: 75px;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" />
+    </ui:VisualElement>
+</ui:UXML>

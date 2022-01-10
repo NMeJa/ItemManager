@@ -1,23 +1,31 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace GoblinAdventures.ItemSystem.Runtime
 {
-    [CreateAssetMenu(fileName = "Container", menuName = "Items", order = 0)]
+    [CreateAssetMenu(fileName = "Container", menuName = "ItemManager/Container", order = 0)]
     public class ItemContainer : ScriptableObject
     {
+        #region Editor
+
 #if UNITY_EDITOR
         public string Name
         {
             get
             {
-                var str = UnityEditor.AssetDatabase.GetAssetPath(this).Split('/')
-                    [UnityEditor.AssetDatabase.GetAssetPath(this).Split('/').Length - 1];
+                var str = AssetDatabase.GetAssetPath(this).Split('/')
+                    [AssetDatabase.GetAssetPath(this).Split('/').Length - 1];
                 str = str.Remove(str.Length - ".asset".Length);
                 return str;
             }
         }
+
 #endif
-        public List<ItemData> items;
+
+        #endregion
+
+        [SerializeField] private List<ItemData> items;
+        public List<ItemData> Items => items;
     }
 }

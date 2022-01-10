@@ -63,6 +63,7 @@ namespace ItemSystem.ItemManagerWindow
             ItemManagerEditorWindow wnd = GetWindow<ItemManagerEditorWindow>();
             wnd.titleContent = new GUIContent("ItemManagerEditorWindow");
             wnd.minSize = new Vector2(750, 800);
+            wnd.maxSize = new Vector2(750, 800);
         }
 
         public void CreateGUI()
@@ -130,7 +131,7 @@ namespace ItemSystem.ItemManagerWindow
         private const string SearchItems_TSF = "SearchItems_TSF";
         private const string AddItemBtn_TB = "AddItemBtn_TB";
         private Label ContainerName => root.Q<Label>(ContainerName_L);
-        private ListView ItemContainers => root.Q<ListView>(ItemContainers_LV);
+        private ListView ItemDatas => root.Q<ListView>(ItemContainers_LV);
         private ToolbarSearchField SearchItems => root.Q<ToolbarSearchField>(SearchItems_TSF);
         private Button AddItemBtn => root.Q<Button>(AddItemBtn_TB);
 
@@ -145,13 +146,14 @@ namespace ItemSystem.ItemManagerWindow
             {
                 if (selectedContainer is not null) FillItemContainer();
 
-                ItemContainers.makeItem = () => new Label();
-                ItemContainers.bindItem = (e, i) =>
+                ItemDatas.makeItem = () => new ItemContainerElement();
+                ItemDatas.bindItem = (e, i) =>
                     {
-                        var label = (Label) e;
-                        label.text = selectedItems[i].Name;
+                        var item = (ItemContainerElement) e;
+                        item.Q<ImageElement>().value = selectedItems[i].Icon;
+                        item.Q<Label>().text = selectedItems[i].Name;
                     };
-                ItemContainers.onItemsChosen += evt =>
+                ItemDatas.onItemsChosen += evt =>
                     {
                         ItemConfigurationContainer.visible = true;
                         ItemConfigurationContainer.Unbind();
@@ -167,9 +169,9 @@ namespace ItemSystem.ItemManagerWindow
                     };
                 SearchItems.RegisterValueChangedCallback(evt =>
                     {
-                        selectedItems = selectedContainer.items.Search(evt.newValue);
-                        ItemContainers.itemsSource = selectedItems;
-                        ItemContainers.RefreshItems();
+                        selectedItems = selectedContainer.Items.Search(evt.newValue);
+                        ItemDatas.itemsSource = selectedItems;
+                        ItemDatas.RefreshItems();
                     });
                 AddItemBtn.clicked += () =>
                     {
@@ -177,8 +179,8 @@ namespace ItemSystem.ItemManagerWindow
                         item.name = GUID.Generate().ToString()[..10];
                         AssetDatabase.AddObjectToAsset(item, selectedContainer);
                         AssetDatabase.SaveAssets();
-                        selectedContainer.items.Add(item);
-                        ItemContainers.RefreshItems();
+                        selectedContainer.Items.Add(item);
+                        ItemDatas.RefreshItems();
                     };
             }
 
@@ -192,6 +194,9 @@ namespace ItemSystem.ItemManagerWindow
                 Stackable.bindingPath = ItemData.CStackable;
                 MinLevel.bindingPath = ItemData.CMinLevel;
                 Prefab.bindingPath = ItemData.CPrefab;
+
+                ItemName.RegisterValueChangedCallback(_ => ItemDatas.Rebuild());
+                IconObj.RegisterValueChangedCallback(_ => ItemDatas.Rebuild());
             }
 
             void AttributesGroupBox(bool isFirst = true)
@@ -321,9 +326,9 @@ namespace ItemSystem.ItemManagerWindow
                                                      "No")) return;
 
                     AssetDatabase.RemoveObjectFromAsset(selectedItem);
-                    selectedContainer.items.Remove(selectedItem);
+                    selectedContainer.Items.Remove(selectedItem);
                     AssetDatabase.SaveAssets();
-                    ItemContainers.RefreshItems();
+                    ItemDatas.RefreshItems();
                     ItemConfigurationContainer.visible = false;
                 };
 
@@ -337,9 +342,9 @@ namespace ItemSystem.ItemManagerWindow
         private void FillItemContainer()
         {
             ContainerName.text = selectedContainer.Name;
-            selectedItems = selectedContainer.items;
-            ItemContainers.itemsSource = selectedItems;
-            ItemContainers.RefreshItems();
+            selectedItems = selectedContainer.Items;
+            ItemDatas.itemsSource = selectedItems;
+            ItemDatas.RefreshItems();
         }
     }
 }

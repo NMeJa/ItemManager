@@ -12,7 +12,7 @@
         <ui:VisualElement name="BodyContainer" class="container" style="width: 100%; height: 100%; flex-direction: row;">
             <ui:VisualElement name="ItemsContainer" style="width: 150px; height: 100%; border-right-width: 1px; border-right-color: rgb(47, 47, 47);">
                 <ui:Label text="Items" display-tooltip-when-elided="true" name="ContainerName_L" style="-unity-text-align: middle-center; font-size: 15px;" />
-                <ui:ListView focusable="true" name="ItemContainers_LV" />
+                <ui:ListView focusable="true" name="ItemContainers_LV" fixed-item-height="75" />
                 <uie:Toolbar>
                     <uie:ToolbarSearchField focusable="true" name="SearchItems_TSF" style="width: 110px;" />
                     <uie:ToolbarSpacer />
@@ -31,7 +31,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="BodyContainer" style="flex-grow: 1; border-top-width: 1px; border-top-color: rgb(35, 35, 35);">
                         <ui:GroupBox name="General" class="groupbox" style="align-items: center;">
-                            <GoblinAdventures.UIElements.ImageElement name="Icon_IE" style="width: 135px; height: 135px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4584671053970592468&amp;guid=7077a8e577d78b84b89ab22e891386f0&amp;type=3#console.warnicon&apos;); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" />
+                            <GoblinAdventures.UIElements.ImageElement name="Icon_IE" style="width: 135px; height: 135px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" />
                             <ui:GroupBox class="groupbox-container" style="min-height: 150px;">
                                 <ui:Label text="General" display-tooltip-when-elided="true" class="groupbox-header" />
                                 <ui:TextField picking-mode="Ignore" label="Name" value="filler text" text="filler text" name="Name_TF" />
