@@ -129,6 +129,10 @@ namespace ItemManagerSystem.ItemManagerEditor
         private const string ItemContainers_LV = "ItemContainers_LV";
         private const string SearchItems_TSF = "SearchItems_TSF";
         private const string AddItemBtn_TB = "AddItemBtn_TB";
+        private const string SaveContainer_Btn = "SaveContainer_Btn";
+        private const string CancelContainer_Btn = "CancelContainer_Btn";
+
+
         private Label ContainerName => root.Q<Label>(ContainerName_L);
         private ListView ItemDatas => root.Q<ListView>(ItemContainers_LV);
         private ToolbarSearchField SearchItems => root.Q<ToolbarSearchField>(SearchItems_TSF);
@@ -189,8 +193,6 @@ namespace ItemManagerSystem.ItemManagerEditor
                     const string EditContainerName_Btn = "EditContainerName_Btn";
                     const string EditModeContainerName_VE = "EditModeContainerName_VE";
                     const string EditContainerName_TF = "EditContainerName_TF";
-                    const string SaveContainer_Btn = "SaveContainer_Btn";
-                    const string CancelContainer_Btn = "CancelContainer_Btn";
                     VisualElement containerName = root.Q<VisualElement>(ContainerName_VE);
                     VisualElement editModeContainer = root.Q<VisualElement>(EditModeContainerName_VE);
                     TextField editNameTextField = root.Q<TextField>(EditContainerName_TF);
@@ -391,6 +393,7 @@ namespace ItemManagerSystem.ItemManagerEditor
             AttributesGroupBox();
             DescriptionGroupBox();
             PriceGroupBox();
+            PowersContainer();
         }
 
         private void FillItemContainer()
@@ -399,6 +402,27 @@ namespace ItemManagerSystem.ItemManagerEditor
             selectedItems = selectedContainer.Items;
             ItemDatas.itemsSource = selectedItems;
             ItemDatas.RefreshItems();
+        }
+
+
+        private void PowersContainer()
+        {
+            root.Q<PropertyField>("FastFix_PF").bindingPath = ItemData.CPowers;
+            // root.Q<Button>(SaveContainer_Btn).clicked += () => selectedItem.Powers.RemoveAll(e => e == null);
+            // root.Q<Button>(CancelContainer_Btn).clicked += () => selectedItem.Powers.RemoveAll(e => e == null);
+            //
+            // const string Powers_SV = "Powers_SV";
+            // const string AddPower_Btn = "AddPower_Btn";
+            //
+            // var powersScrollView = root.Q<ScrollView>(Powers_SV);
+            // var addPower = root.Q<Button>(AddPower_Btn);
+            //
+            // addPower.clicked += () =>
+            //     {
+            //         selectedItem.Powers.Add(null);
+            //         PowerElement powerElement = new PowerElement(selectedItem);
+            //         powersScrollView.Add(powerElement);
+            //     };
         }
     }
 }

@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/ItemManagerSystem/Editor/ItemManagerEditor/PowerElement/PowerElement.uss?fileID=7433441132597879392&amp;guid=2b16f7271aaa7a54183258020b106723&amp;type=3#PowerElement" />
+    <ui:VisualElement name="MainContainer_VE" style="width: 150px; height: 150px; justify-content: flex-end; align-items: center; max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px;">
+        <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-between;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" style="-unity-text-align: middle-center;" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+        <ItemManagerSystem.ItemManagerEditor.Utilities.ImageElement style="width: 145px; height: 145px;" />
+        <uie:ObjectField allow-scene-objects="false" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

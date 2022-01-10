@@ -206,13 +206,14 @@
                                 <uie:FloatField label="Sell Price" value="42.2" name="SellPrice_FF" />
                             </ui:GroupBox>
                         </ui:GroupBox>
-                        <ui:VisualElement name="Powers" class="groupbox">
+                        <ui:VisualElement name="Powers" class="groupbox" style="height: 200px;">
                             <ui:GroupBox class="groupbox-container">
                                 <ui:Label text="Powers" display-tooltip-when-elided="true" class="groupbox-header" />
-                                <ui:VisualElement style="flex-direction: row; width: 100%; height: 150%;">
-                                    <ui:ScrollView mode="Horizontal" />
-                                    <ui:Button text="+" display-tooltip-when-elided="true" style="font-size: 35px; background-color: rgb(60, 60, 60);" />
+                                <ui:VisualElement style="flex-direction: row; width: 100%; height: 175px; display: none;">
+                                    <ui:ScrollView name="Powers_SV" mode="Horizontal" />
+                                    <ui:Button text="+" display-tooltip-when-elided="true" name="AddPower_Btn" style="font-size: 35px; background-color: rgb(60, 60, 60);" />
                                 </ui:VisualElement>
+                                <uie:PropertyField name="FastFix_PF" />
                             </ui:GroupBox>
                         </ui:VisualElement>
                     </ui:VisualElement>

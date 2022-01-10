@@ -1,4 +1,5 @@
-﻿using ItemManagerSystem.Enums;
+﻿using System.Collections.Generic;
+using ItemManagerSystem.Enums;
 using UnityEngine;
 
 namespace ItemManagerSystem
@@ -24,6 +25,7 @@ namespace ItemManagerSystem
         public const string Cconstitution = nameof(constitution);
         public const string CWisdom = nameof(wisdom);
         public const string CCharisma = nameof(charisma);
+        public const string CPowers = nameof(powers);
 
         [SerializeField] private new string name;
         [SerializeField] private Sprite icon;
@@ -46,6 +48,7 @@ namespace ItemManagerSystem
         [SerializeField] private Constitution constitution;
         [SerializeField] private Wisdom wisdom;
         [SerializeField] private Charisma charisma;
+        [SerializeField] private List<APower> powers;
 
         public string Name => name;
         public Sprite Icon => icon;
@@ -66,6 +69,7 @@ namespace ItemManagerSystem
         public Constitution Constitution => constitution;
         public Wisdom Wisdom => wisdom;
         public Charisma Charisma => charisma;
+        public List<APower> Powers => powers;
 
         public void CopyTo(ItemData other)
         {

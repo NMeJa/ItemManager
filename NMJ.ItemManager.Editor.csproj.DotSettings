@@ -3,7 +3,9 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Ccontainerelement/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Citemmanagerwindow/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Coverwritescripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Cpowerelement/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Cutilities/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Cutilities_005Ceditoronlylistview/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Cutilities_005Cenumfieldwithflag/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Citemmanagereditor_005Cutilities_005Cimageelement/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Citemmanagersystem_005Ceditor_005Cutilities_005Cenumfieldwithflag/@EntryIndexedValue">True</s:Boolean>
